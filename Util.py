@@ -18,3 +18,12 @@ def roundstr(value: str) -> str:
             roundedvalue += i
     value = roundedvalue
     return value
+
+
+def inform(debuglevel: int, normal: str, full: str):
+    if debuglevel == 0:
+        ...
+    elif debuglevel == 1:
+        print(normal)
+    else:
+        print(full)

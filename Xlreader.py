@@ -3,13 +3,16 @@ import string
 import Util
 
 
-def readXl(path, sheet, firstrow, firstcol):
+def readXl(path: str, sheet: str, firstrow: int, dblvl: int) -> list:
     abc = list(string.ascii_uppercase)
     formulas = []
     dictionary = {}
-    source = px.readxl(fn=path).ws(
-        ws=sheet
-    )  # this shit read file and define source as a current sheet :>
+    source = px.readxl(fn=path).ws(ws=sheet)
+    Util.inform(
+        dblvl,
+        f"Xlreader reading Excel file '{path}'\n",
+        f"Xlreader reading Excel file '{path}', sheet '{sheet}'\n",
+    )
     for i in range(len(abc)):
 
         formcell = source.address(address=abc[i] + str(firstrow + 2), output="f")
@@ -27,4 +30,9 @@ def readXl(path, sheet, firstrow, firstcol):
         if valuecell:
             templist = [namecell, valuecell, formcell]
             dictionary.update({idcell: templist})
+    Util.inform(
+        dblvl,
+        f"Xlreader found {len(dictionary)+1} columns and {len(formulas)+1} formulas\n",
+        f"Xlreader found {len(dictionary)+1} columns,\ncreated list of formulas \n{formulas} \nand dictionary \n{dictionary}\n",
+    )
     return [dictionary, formulas]

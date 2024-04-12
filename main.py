@@ -1,19 +1,24 @@
 import Xlreader
 import Rephraser
 import Wrdwriter
+import Util
+import UImaker
 
 
 def main():
-    firstcol = 2
+
+    print("Create time\n")
+    settings = UImaker.Startsetup()
+    path = settings[0]
+    sheet = settings[1]
+    dblvl = settings[2]
     firstrow = 0
-    dictionary = Xlreader.readXl(
-        "C:\\Users\\kubik\\Downloads\\LCHI.xlsx", "H", firstrow, firstcol
-    )[0]
-    formulas = Xlreader.readXl(
-        "C:\\Users\\kubik\\Downloads\\LCHI.xlsx", "H", firstrow, firstcol
-    )[1]
-    finalformulas = Rephraser.rewriteCE(formulas, dictionary)
-    Wrdwriter.WriteWrd(finalformulas)
+    [dictionary, formulas] = [
+        Xlreader.readXl(path, sheet, firstrow, dblvl)[0],
+        Xlreader.readXl(path, sheet, firstrow, 0)[1],
+    ]
+    finalformulas = Rephraser.rewriteCE(formulas, dictionary, dblvl=dblvl)
+    Wrdwriter.WriteWrd(finalformulas, dblvl)
 
 
 if __name__ == main():
