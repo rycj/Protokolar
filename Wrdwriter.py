@@ -2,7 +2,7 @@ import Util
 
 
 def WriteWrd(finalformulas, dblvl):
-    transferfile = open("finaldoc.docx", "w")
+    transferfile = open("transferfile.txt", "w")
     Util.inform(
         dblvl,
         "Wrdwriter outputting results to .docx\n",

@@ -23,7 +23,7 @@ def readXl(path: str, sheet: str, firstrow: int, dblvl: int) -> list:
 
         namecell = str(source.address(address=abc[i] + str(firstrow + 1)))
 
-        valuecell = Util.roundstr(
+        valuecell = Util.roundliza(
             str(source.address(address=abc[i] + str(firstrow + 2)))
         )
 
