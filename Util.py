@@ -12,7 +12,7 @@ def roundstr(value: str) -> str:
             continue
         if decnum < 3:
             if i == "0" and decnum == 0:
-                ...
+                pass
             else:
                 decnum += 1
             roundedvalue += i
