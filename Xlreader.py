@@ -3,7 +3,7 @@ import string
 import Util
 
 
-def readXl(path: str, sheet: str, firstrow: int, dblvl: int) -> list:
+def XlToDict(path: str, sheet: str, firstrow: int, dblvl: int) -> dict:
     abc = list(string.ascii_uppercase)
     formulas = []
     dictionary = {}
@@ -24,15 +24,18 @@ def readXl(path: str, sheet: str, firstrow: int, dblvl: int) -> list:
         namecell = str(source.address(address=abc[i] + str(firstrow + 1)))
 
         valuecell = Util.roundliza(
-            str(source.address(address=abc[i] + str(firstrow + 2)))
+            str(source.address(address=abc[i] + str(firstrow + 2))), dblvl
         )
 
         if valuecell:
-            templist = [namecell, valuecell, formcell]
+            if formcell != "=":
+                templist = [namecell, valuecell, formcell]
+            else:
+                templist = [namecell, valuecell, None]
             dictionary.update({idcell: templist})
     Util.inform(
         dblvl,
         f"Xlreader found {len(dictionary)+1} columns and {len(formulas)+1} formulas\n",
         f"Xlreader found {len(dictionary)+1} columns,\ncreated list of formulas \n{formulas} \nand dictionary \n{dictionary}\n",
     )
-    return [dictionary, formulas]
+    return dictionary

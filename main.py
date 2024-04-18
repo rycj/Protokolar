@@ -3,6 +3,7 @@ import Rephraser
 import Wrdwriter
 import Util
 import UImaker
+import docal
 
 
 def main():
@@ -14,14 +15,11 @@ def main():
     # dblvl = settings[2]
     path = "TEST.xlsx"
     sheet = "Sheet1"
-    dblvl = 1
+    dblvl = 2
     firstrow = 0
-    [dictionary, formulas] = [
-        Xlreader.readXl(path, sheet, firstrow, dblvl)[0],
-        Xlreader.readXl(path, sheet, firstrow, 0)[1],
-    ]
-    finalformulas = Rephraser.rewriteCE(formulas, dictionary, dblvl=dblvl)
-    Wrdwriter.WriteWrd(finalformulas, dblvl)
+    dictionary = Xlreader.XlToDict(path, sheet, firstrow, dblvl)
+    dictionary = Rephraser.CEformulasOLD(dictionary, dblvl=dblvl)
+    Wrdwriter.WriteWrdOLD(dictionary, dblvl)
 
 
 if __name__ == main():
