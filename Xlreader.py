@@ -23,7 +23,7 @@ def XlToDict(path: str, sheet: str, firstrow: int, dblvl: int) -> dict:
 
         namecell = str(source.address(address=abc[i] + str(firstrow + 1)))
 
-        valuecell = Util.roundliza(
+        valuecell = Util.roundstr(
             str(source.address(address=abc[i] + str(firstrow + 2))), dblvl
         )
 

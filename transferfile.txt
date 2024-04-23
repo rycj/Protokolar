@@ -1,6 +1,6 @@
-Pokracujeme vypoctem V=(0.000129*(h^2)+0.1813*h+15.33)/60000=(0.000129*(60^2)+0.1813*60+15.33)/60000=0.000445
-Pokracujeme vypoctem v=V/S=0.000445/0.000141=3.15
-Jako dalsi pocitame dp=mano*(rom-ro)*9.81=0.88*(2880-998.0)*9.81=16200.0
-Pokracujeme vypoctem re=(v*d*ro)/ny=(3.15*0.0134*998.0)/0.000944=44700.0
-Pokracujeme vypoctem lambda=(2*dp*d)/(l*ro*(v^2))=(2*16200.0*0.0134)/(2*998.0*(3.15^2))=0.022
-Nakonec zbyva jeste vypocitat V l/min=(0.000129*h^2+0.1813*h+15.33)=(0.000129*60^2+0.1813*60+15.33)=26.7
+Jako dalsi pocitame V=(0.000129*(A2^2)+0.1813*A2+15.33)/60000=(0.000129*(A2^2)+0.1813*A2+15.33)/60000=0.000445
+Jako dalsi pocitame v=C2/L2=C2/L2=3.15
+Dale spocteme dp=B2*(P2-O2)*9.81=B2*(P2-O2)*9.81=16200.0
+Dale spocteme re=(D2*H2*O2)/Q2=(D2*H2*O2)/Q2=44700.0
+Jako dalsi pocitame lambda=(2*E2*H2)/(K2*O2*(D2^2))=(2*E2*H2)/(K2*O2*(D2^2))=0.022
+Nakonec zbyva jeste vypocitat V l/min=(0.000129*A2^2+0.1813*A2+15.33)=(0.000129*A2^2+0.1813*A2+15.33)=26.7

@@ -54,11 +54,14 @@ def CEformulas(dictionary: dict, dblvl: int) -> list:
     return finalforms
 
 
-def rewriteforLateX():
-    ...
+def rewritefracs(formula: str) -> str:
+    list = formula.split("/")
+
     # tohle bude mega hard
+    ...
 
 
+# ____________________________________________________________________________________________________________________________________
 # obsolete, keeping it to see if it can be useful later
 def CEformulasOLD(dictionary: dict, dblvl: int) -> dict:
     Util.inform(
@@ -68,6 +71,7 @@ def CEformulasOLD(dictionary: dict, dblvl: int) -> dict:
     )
     for i in dictionary:
         form = dictionary.get(i)[2]
+        print(type(form))
         if form:
             for key in dictionary:
                 if dictionary.get(key)[2] == form:
@@ -76,10 +80,12 @@ def CEformulasOLD(dictionary: dict, dblvl: int) -> dict:
             form = form.replace("$", "")
             formula = form
             for key in dictionary:
-                formula = formula.replace(key, dictionary.get(key)[0])
-            formula = formula + form
-            for key in dictionary:
-                formula = formula.replace(key, dictionary.get(key)[1])
+                formula = form.replace(key, dictionary.get(key)[0]) + form.replace(
+                    key, dictionary.get(key)[1]
+                )
+            # formula = formula + form
+            # for key in dictionary:
+            #     formula = formula.replace(key, dictionary.get(key)[1])
             # for key in dictionary:
             #     formula = form.replace(key, dictionary.get(key)[0]) + form.replace(
             #         key, dictionary.get(key)[1]

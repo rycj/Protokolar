@@ -3,7 +3,6 @@ import Rephraser
 import Wrdwriter
 import Util
 import UImaker
-import docal
 
 
 def main():
